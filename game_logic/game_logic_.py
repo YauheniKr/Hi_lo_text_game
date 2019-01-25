@@ -118,6 +118,7 @@ def find_player_by_id(player_id: int) -> Player:
 
     return player
 
+
 '''
 def count_round_wins(player_id: int, game_id: str) -> int:
     history = get_game_history(game_id)

@@ -91,7 +91,7 @@ def init_rolls():
 def all_rolls() -> List[Move]:
     session = create_session()
 
-    query = session.query(Move).order_by(Move.number).order_by(Move.count).all()
+    query = session.query(Move).order_by(Move.game_id).all()
     rolls = list(query)
 
     session.close()
@@ -169,3 +169,10 @@ def get_game_moves(game_id):
 
     num = query
     return num
+
+def get_hiscore():
+    all_player_gamed = {player.id: player.name for player in all_players()}
+    out = {game.game_id: all_player_gamed[game.player_id] for game in all_rolls()}
+    cnt = [(out[k], get_game_moves(k)) for k in out.keys()]
+    game_score = sorted(cnt, key=lambda x: x[1])[:3]
+    return game_score

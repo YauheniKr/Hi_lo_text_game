@@ -5,7 +5,11 @@ def main():
     svc = GameService()
     print("Game app! (client)")
     print()
-
+    print('HiScOre(3 best game)!!!')
+    print()
+    for postion, record in enumerate(game_service.get_hiscore(), 1):
+        print(f'{postion}. {record[0]} spend {record[1]} moves')
+    print()
     game_id = svc.create_game().get('game_id')
     the_number = svc.create_game().get('the_number')
     player_input = input("Please, insert your name: ")
