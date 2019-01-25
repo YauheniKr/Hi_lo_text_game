@@ -17,6 +17,7 @@ class Move(ModelBase):
     guess = sqlalchemy.Column(sqlalchemy.Integer)
     is_over = sqlalchemy.Column(sqlalchemy.BOOLEAN)
 
+
     def to_json(self, player):
 
         return {

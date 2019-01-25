@@ -74,8 +74,6 @@ def get_game_history(game_id: str) -> List[Move]:
 
     query = session.query(Move) \
         .filter(Move.game_id == game_id) \
-        .order_by(Move.number) \
-        .order_by(Move.count) \
         .all()
 
     moves = query

@@ -1,8 +1,5 @@
-import flask, json
 from client.api import GameService
 from game_logic import game_service
-
-app = flask.Flask(__name__)
 
 def main():
     svc = GameService()
@@ -29,11 +26,6 @@ def main():
         else:
             print('Excellent work {}, you won, it was {}!'.format(name, the_number))
             break
-
-def flask_json(d):
-    with app.app_context():
-        return flask.jsonify(d)
-
 
 
 if __name__ == '__main__':
